@@ -6,8 +6,8 @@
 # import wikipedia
 # import smtplib
 
-gmail_id = os.environ.get('SENDER_EMAIL')
-gmail_password = os.environ.get('SENDER_EMAIL_PASSWORD')
+# gmail_id = os.environ.get('SENDER_EMAIL')
+# gmail_password = os.environ.get('SENDER_EMAIL_PASSWORD')
 
 
 # myName = 'Jarvis'
