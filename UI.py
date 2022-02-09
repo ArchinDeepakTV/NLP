@@ -3,7 +3,7 @@ from textwrap import wrap
 from tkinter import ttk
 import tkinter as tk
 from tkinter import *
-
+import os
 from matplotlib import image
 from Clearing import Clear
 import atexit
@@ -12,6 +12,9 @@ from tkinter import filedialog
 from imageExtract import siteOpener
 # from PIL import ImageTk
 # from PIL import Image
+
+os.environ.setdefault('SENDER_EMAIL', "1rn18ec022.archindeepak@gmail.com")
+os.environ.setdefault('SENDER_EMAIL_PASSWORD', "@rch1n2203")
 
 
 atexit.register(print, "Program exited successfully!")
