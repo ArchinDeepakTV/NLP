@@ -23,17 +23,16 @@ def takecommand():
     except Exception:
         return 'None'
     return trigger
-if __name__ == "__main__":
-      
 
-    while 1:
-        flag = 0
-        trigger=takecommand().lower()
-        print(trigger)
-        if "vivah on" in trigger:
-            flag = 1
-            break
+
+while 1:
+    flag = 0
+    trigger=takecommand().lower()
+    print(trigger)
+    if "vivah on" in trigger:
+        flag = 1
+        break
             
-    if (flag==1):
-        speak("vivah is ON")
-        os.system('temp.py')
+if (flag==1):
+    speak("vivah is ON")
+    os.system('temp.py')

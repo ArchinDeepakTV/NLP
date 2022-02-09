@@ -1,31 +1,32 @@
-# -*- coding: utf-8 -*-
-"""
-Spyder Editor
-
-This is a temporary script file.
-"""
-import pyttsx3
-import datetime
-import speech_recognition as sr
-import os
-import webbrowser
-import wikipedia
-import smtplib
+# import pyttsx3
+# import datetime
+# import speech_recognition as sr
+# import os
+# import webbrowser
+# import wikipedia
+# import smtplib
 
 gmail_id = os.environ.get('SENDER_EMAIL')
 gmail_password = os.environ.get('SENDER_EMAIL_PASSWORD')
 
 
-myName = 'Jarvis'
-engine = pyttsx3.init('sapi5')
-voices =engine.getProperty('voices')
-engine.setProperty('voice', voices[1].id)
+# myName = 'Jarvis'
+# engine = pyttsx3.init('sapi5')
+# voices =engine.getProperty('voices')
+# engine.setProperty('voice', voices[1].id)
 
 def speak(audio):
+    import pyttsx3    
+    myName = 'Jarvis'
+    engine = pyttsx3.init('sapi5')
+    voices =engine.getProperty('voices')
+    engine.setProperty('voice', voices[1].id)
+
     engine.say(audio)
     engine.runAndWait()
 
 def greet():
+    import datetime
     hour = datetime.datetime.now().hour
     if hour >=0 and hour<=12:
         speak("Good Morning Sir!!")
@@ -34,14 +35,24 @@ def greet():
     else:
         speak("Good Evening Sir!!")
     speak('How VIVA, can help you!!')
+
+
 def sendEmail(to, content):
+    import os
+    import smtplib
+    gmail_id = os.environ.get('SENDER_EMAIL')
+    gmail_password = os.environ.get('SENDER_EMAIL_PASSWORD')
+
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
     server.login(gmail_id, gmail_password)
     server.sendmail('archindeepakad.ad@gmail.com', to, content)
     server.close()
+
+
 def takecommand():
+    import speech_recognition as sr
     r=sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening...")
@@ -56,7 +67,17 @@ def takecommand():
     except Exception:
         return 'None'
     return query
-if __name__ == "__main__":
+
+
+def mains():
+    import pyttsx3
+    import datetime
+    import speech_recognition as sr
+    import os
+    import webbrowser
+    import wikipedia
+    import smtplib
+
     greet()
     query="None"
     while "vivah of" not in query:
